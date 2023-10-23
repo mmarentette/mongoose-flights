@@ -7,8 +7,8 @@ const flightSchema = new mongoose.Schema({
     },
     airport: {
         type: String,
-        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
-        default: 'DEN'
+        enum: ['AUS', 'DEN', 'DFW', 'LAX', 'SAN'],
+        default: 'SAN'
     },
     flightNo: {
         type: Number,
@@ -16,8 +16,8 @@ const flightSchema = new mongoose.Schema({
         max: [9999, 'Flight Number must be at most 9999']
     },
     departs: {
-        type: Date
-        // Assign a default date! Possibly in EJS...
+        type: Date,
+        default: Date.now + (365 * 24 * 60 * 60 * 1000) // Need to research this more
     }
 });
 
