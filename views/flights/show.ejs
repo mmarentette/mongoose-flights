@@ -1,23 +1,19 @@
 <%- include('../partials/header') %>
 
-<table>
-    <thead>
-        <th>Airline</th>
-        <th>Airport</th>
-        <th>Flight Number</th>
-        <th>Departs</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td><%= flight.airline %></td>
-            <td><%= flight.airport %></td>
-            <td><%= flight.flightNo %></td>
-            <td><%= flight.departs %></td>
-        </tr>
-    </tbody>
-</table>
+<section id="show-page">
+    <div>Airline: <%= flight.airline %></div>
+    <div>Airport: <%= flight.airport %></div>
+    <div>Flight Number: <%= flight.flightNo %></div>
+    <div>Departs: <%= flight.departs %></div>
+    <div>Tickets:</div>
+    <ul>
+        <% tickets.forEach(t => { %>
+            <li>Seat: <%= t.seat %>, Price: <%= t.price %></li>
+        <% }) %>
+    </ul>
+</section>
 
-<br><br>
+<br>
 
 <form action="/flights/<%= flight._id %>/destinations" method="POST">
     <%- include('../partials/airport-selection') %>
