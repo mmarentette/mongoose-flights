@@ -2,7 +2,7 @@ const Flight = require('../models/flight');
 
 module.exports = {
     create
-}
+};
 
 async function create(req, res) {
     try {
@@ -13,6 +13,7 @@ async function create(req, res) {
         await flightDoc.save();
         res.redirect(`/flights/${flightDoc._id}`);
     } catch (error) {
+        console.log(error);
         res.send(error);
     }
 }
